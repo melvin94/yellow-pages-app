@@ -1,0 +1,28 @@
+p = link_to 'Go Back', :back
+
+h1 Add new organization
+= form_with(model: @service_organization, local: true) do |form|
+    = form.hidden_field :service_type_id, value: @service_type.id
+    p
+        = form.label :organization
+        br
+        = form.text_field :organization
+        br        
+        = form.label :address, "Addresses"
+        br
+        = form.text_area :address
+        br        
+        = form.label :number, "Phone Numbers"
+        br
+        = form.text_area :number
+        br        
+        = form.label :website
+        br
+        = form.text_field :website
+        br        
+        = form.label :hours, "Hours of Operation"
+        br
+        = form.text_area :hours
+        br
+    p
+        = form.submit

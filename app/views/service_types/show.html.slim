@@ -1,0 +1,29 @@
+p = link_to 'Go Back', service_types_path
+
+h1
+    = @service_type.service_type
+    '   organizations
+p = link_to 'Add new organization', new_service_organization_path(service_type_id: @service_type)
+
+- @service_type.service_organizations.each do |organization|
+    '___________________
+    p
+        strong = organization.organization
+        '   
+        = link_to 'Edit', edit_service_organization_path(service_type_id: @service_type, id: organization)
+        '   
+        = link_to 'Remove', service_organization_path(service_type_id: @service_type, id: organization), method: :delete, data: { confirm: 'Are you sure?' }
+        br
+        p
+            strong Addresses
+            = simple_format(organization.address)
+        p
+            strong Numbers
+            = simple_format(organization.number)
+        p
+            strong Website
+            br
+            = organization.website
+        p
+            strong Hours of Operation
+            = simple_format(organization.hours)

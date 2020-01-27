@@ -1,0 +1,10 @@
+p = link_to 'Go Back', service_types_path
+
+h1 Edit service
+= form_with(model: @service_type, local: true) do |form|
+    p
+        = form.label :service_type
+        br
+        = form.text_field :service_type
+    p
+        = form.submit

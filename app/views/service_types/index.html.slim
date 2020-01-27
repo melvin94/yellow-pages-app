@@ -1,0 +1,12 @@
+h1 Welcome to the Yellow Pages
+p = link_to 'Add new service', new_service_type_path
+table
+    tr
+        th
+            strong Services
+    - @service_types.each do |service_type|
+        tr
+            td = service_type.service_type
+            td = link_to 'View', service_type_path(service_type)
+            td = link_to 'Edit', edit_service_type_path(service_type)
+            td = link_to 'Delete', service_type_path(service_type), method: :delete, data: { confirm: 'Are you sure?' }
